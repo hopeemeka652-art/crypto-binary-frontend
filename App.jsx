@@ -39,15 +39,31 @@ useEffect(() => {
   
    
 
+const handleLogin = async () => {
+  try {
+    const res = await axios.post('https://crypto-binary-backend.onrender.com/api/login', {
+      email,
+      password,
+    });
+
+    if (res.data.success) {
+      setLoggedIn(true);
+    } else {
+      alert('Login failed: ' + res.data.message);
+    }
+  } catch (err) {
+    console.error('Login error:', err);
+    alert('An error occurred during login.');
+  }
+};      
+        
+        
       
-        email,
-        password,
-      });
-      if (res.data.success) {
-        setLoggedIn(true);
-        setError(null);
-      } else {
-        setError('Login failed');
+      
+        
+        
+      
+        
       }
     } catch (err) {
       setError('Login error');
