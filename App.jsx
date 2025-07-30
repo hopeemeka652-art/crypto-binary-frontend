@@ -18,7 +18,7 @@ export default function App() {
 
   const fetchPrice = async () => {
     try {
-      const res = await axios.get('https://your-backend-url.onrender.com/api/price');
+      const res = await axios.get('https://crypto-binary-backend.onrender.com/api/price');
       setPrice(res.data.price);
     } catch (err) {
       console.error('Price fetch error:', err);
@@ -27,7 +27,8 @@ export default function App() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post('https://your-backend-url.onrender.com/api/login', {
+await axios.post('https://crypto-binary-backend.onrender.com/api/login', {      
+        
         email,
         password,
       });
