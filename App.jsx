@@ -21,14 +21,25 @@ export default function App() {
       const res = await axios.get('https://crypto-binary-backend.onrender.com/api/price');
       setPrice(res.data.price);
     } catch (err) {
-      console.error('Price fetch error:', err);
+useEffect(() => {
+  const fetchPrice = async () => {
+    try {
+      const res = await axios.get('https://crypto-binary-backend.onrender.com/api/price');
+      setPrice(res.data.price);
+    } catch (err) {
+      console.error('Error fetching price:', err);
     }
   };
 
-  const handleLogin = async () => {
-    try {
-await axios.post('https://crypto-binary-backend.onrender.com/api/login', {      
-        
+  fetchPrice();
+}, []);      
+  
+  
+
+  
+   
+
+      
         email,
         password,
       });
